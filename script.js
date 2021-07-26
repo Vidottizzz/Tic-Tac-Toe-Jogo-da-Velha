@@ -12,11 +12,17 @@ reset();
 
 //Events
 document.querySelector('.reset').addEventListener('click',reset);
-
-
-
+//adding event listener for each item of the table, instead of putting in each at time
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('click', itemClick);
+});
 
 //Functions
+function itemClick(event) {
+    item = event.target.getAttribute('data-item');
+    console.log("Clicou em", item);
+}
+
 function reset() {
     warning = '';
 
@@ -44,6 +50,7 @@ function renderSquare(){
 function renderInfo(){
     document.querySelector('.vez').innerHTML = player;
     document.querySelector('.resultado').innerHTML = warning;
+
 
 
 }
